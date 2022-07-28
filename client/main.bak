@@ -1,0 +1,90 @@
+/ package main
+
+// import (
+// 	"context"
+// 	"log"
+
+// 	"google.golang.org/grpc"
+// 	pb "moviesapp.com/grpc/protos"
+// )
+
+// const (
+// 	address = "localhost:50051"
+// )
+
+// func main() {
+// 	conn, err := grpc.Dial(address, grpc.WithInsecure(),
+// 		grpc.WithBlock())
+// 	if err != nil {
+// 		log.fatalf("did not connect: %v", err)
+// 	}
+// 	defer conn.Close()
+// 	client := pb.NewMovieClient(conn)
+
+// 	// runGetMovies(client)
+// 	// runGetMovie(client, movieid)
+// 	// runCreateMovie(client, isbn, title,firstname, lastname)
+// 	// runUpdateMovie(client, movieid, idbn, title, firstname, lastname)
+// 	// runDeleteMovie(client,movieid)
+//}
+// 	func runGetMovies(client pb.MovieClient){
+// 		ctx, cancel := context.WithTimeout(context.Background(), time.second)
+// 		defer cancel()
+// 		req := &pb.Empty{}
+// 		stream, err := client.GetMovies(ctx,req)
+// 		if err != nil{
+// 			log.Fatalf("%v.GetMovies(_)=_,%v",client,err)
+// 		}
+// 		for {
+// 			row, err := stream.Recv()
+// 			if err==io.EOF{
+// 				break
+// 			}
+// 			if err !=nil{
+// 				log.Fatalf("%v.GetMovies(_)=_,%v",client,err)
+// 			}
+// 			log.Printf("MovieInfo:%v", row)
+// 		}
+// 	}
+// 	func runGetMovie(client pb.MovieClient, isbn string, title string, firstname string, lastname string){
+// 		ctx, cancel:= context.WithTimeout(context.Background(), time.Second)
+// 		defer cancel()
+// 		req := &pb.MovieInfo{Isbn:isbn,Title: title, Direcctor:&pb.Director{Firstname:firstname,lastname:lastname}}
+// 		res, err := client.CreateMovie(ctx, req)
+// 		if err!=nil{
+// 			log.Fatalf("%v.GetMovies(_)=_,%v",client,err)
+// 		}if res.GetValue() !=""{
+// 			log.Printf("CreateMovie Id: %v", res)
+// 		}else{
+// 			log.Printf("CreateMovie Failed")
+// 		}
+// 	}
+// 	func runUpdateMovie(client pb.MovieClient, movieid string, title string, firstname string, lastname string){
+// 		ctx, cancel:= context.WithTimeout(context.Background(), time.Second)
+// 		defer cancel()
+// 		req := &pb.MovieInfo{Id:isbn,Title: title, Direcctor:&pb.Director{Firstname:firstname,lastname:lastname}}
+// 		res, err := client.UpdateMovie(ctx, req)
+// 		if err!=nil{
+// 			log.Fatalf("%v.GetMovies(_)=_,%v",client,err)
+// 		}
+// 		if int(res.GetValue())==1{
+// 			log.Printf("UpdateMovie success")
+// 		}else{
+// 			log.printf("updateMovie Failed")
+// 		}
+// 	}
+// func runDeleteMovie(client pb.MovieClient, movieid string){
+// 	ctx, cancel:= context.WithTimeout(context.Background(), time.Second)
+// 	defer cancel()
+// 	req := &pb.Id{Value:movieid}
+// 	res, err := client.DeleteMovie(ctx, req)
+// 	if err!=nil{
+// 		log.Fatalf("%v.DeleteMovie(_)=_,%v",client,err)
+// 	}if int(res.GetValue())==1{
+// 		log.Printf("DeleteMovie success")
+// 		}else{
+// 			log.printf("DeleteMovie Failed")
+// 		}
+// }
+
+
