@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package ="moviesapp.com/grpc/protos";
+option go_package ="github.com/Akashkumar-Jeyaramans/moviesapp.com/protos";
 option java_multiple_files=true;
 option java_package = "io.grpc.app1.moviesapp";
 option java_outer_classname = "MoviesAppProto";
@@ -9,7 +9,7 @@ option objc_class_prefix = "MAP";
 package moviesapp;
 import "google/api/annotations.proto";
 service Movie{
-    rpc GetMovies(Empty) returns (MovieInfo);
+    rpc GetMovies(Empty) returns (stream MovieInfo);
     rpc GetMovie(Id) returns (MovieInfo);
     rpc CreateMovie(MovieInfo) returns (Id);
     rpc UpdateMovie (MovieInfo) returns (Status);

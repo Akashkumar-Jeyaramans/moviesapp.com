@@ -6,8 +6,8 @@ import (
 	"log"
 	"time"
 
+	pb "github.com/Akashkumar-Jeyaramans/moviesapp.com/protos"
 	"google.golang.org/grpc"
-	pb "moviesapp.com/grpc/protos"
 )
 
 const (
@@ -29,8 +29,8 @@ func main() {
 	// 	"Stan", "Lee")
 	// runUpdateMovie(client, "98498081", "24325645", "Spiderman Spiderverse",
 	// 	"Peter", "Parker")
-	// runDeleteMovie(client, "98498081")
-	// 	// runGetMovies(client)
+	runDeleteMovie(client, "19727887")
+	runGetMovies(client)
 	// 	// runGetMovie(client, movieid)
 	// 	// runCreateMovie(client, isbn, title,firstname, lastname)
 	// 	// runUpdateMovie(client, movieid, idbn, title, firstname, lastname)
